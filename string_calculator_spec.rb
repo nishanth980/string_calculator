@@ -1,4 +1,4 @@
-﻿require 'rspec'
+require 'rspec'
 require_relative 'string_calculator'
 
 describe StringCalculator do
@@ -13,11 +13,19 @@ describe StringCalculator do
       end
     end
 
-    context 'When an negative integer is sent in the string' do
+    context 'When an negative integers are sent in the string' do
       let(:string) { '-4,-9' }
 
       it 'raises an exception with message' do
         expect { calculator.add }.to raise_error('Negative Numbers are -4,-9')
+      end
+    end
+
+    context 'When an positive integers is sent in the string' do
+      let(:string) { '4,9' }
+
+      it 'returns the sum of the integers' do
+        expect(calculator.add).to eq(13)
       end
     end
   end
