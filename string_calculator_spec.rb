@@ -48,5 +48,13 @@ describe StringCalculator do
         expect { calculator.add }.to raise_error('Invalid input')
       end
     end
+
+    context 'When custom delimiter is sent in the input' do
+      let(:string) { "//;\n1;2" }
+
+      it 'raises error that the input is invalid' do
+        expect(calculator.add).to eq(3)
+      end
+    end
   end
 end
