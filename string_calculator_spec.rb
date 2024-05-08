@@ -28,5 +28,25 @@ describe StringCalculator do
         expect(calculator.add).to eq(13)
       end
     end
+
+    context 'When \n is sent in the middle of the input' do
+      let(:string) { "4\n9" }
+
+      it 'returns the sum of the integers' do
+        expect(calculator.add).to eq(13)
+      end
+
+      it 'raises the sum of the integers' do
+        expect(calculator.add).to eq(13)
+      end
+    end
+
+    context 'When \n is sent at the end of the input' do
+      let(:string) { "4,9\n" }
+
+      it 'raises error that the input is invalid' do
+        expect { calculator.add }.to raise_error('Invalid input')
+      end
+    end
   end
 end
